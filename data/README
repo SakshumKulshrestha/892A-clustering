@@ -1,0 +1,54 @@
+Supplementary data sets:
+========================
+
+	60species.fas: sequences derived from the V6 region of 60 different 
+species. Two of them have the same sequence, hence corresponding to 59 OTUs
+at 3% dissimilarity (Materials and Methods).
+
+	60x50.fas: same sequences as above, repeated 50 times each. Used to
+check richness estimation as a function of the OTU/sequence number ratio.
+
+	60x50mutinter.fas: sequence dataset generated from 60species.fas.
+Each sequence was mutated 50 times to produce 50 derivatives, each of them 
+containing only one independent single point mutation or indel, and arranged
+interleaving mutants and species. E.g. if 60species contained S1, S2.. S60
+this file would contain S1-mutant1, S2-mutant1, ... S59-mutant50, S60-mutant50.
+
+	60x50mutstack.fas: sequence dataset generated from 60species.fas.
+Each sequence was mutated 50 times to produce 50 derivatives, each of them
+containing only one indpendent single point mutation or indel, and arranged
+stacking all 50 derives sequences one after the other. E.g. if 60 species
+contained S1, S2.. S60, this file would contain S1-mutant1, S1-mutant2...
+S60-mutant49, S60mutant50.
+
+	Control-t1.fas: dataset for differential richness estimation. Control
+sample at time 1.
+
+	Control-t2.fas: dataset for differential richness estimation. Control
+sample at time 2.
+
+	Glyphosate-t1.fas: dataset for differential richness estimation. Sample
+from Glyphosate treated soil at time 1.
+
+	Glyphosate-t2.fas: dataset for differential richness estimation. Sample
+from Glyphosate treated soil at time 2.
+
+	GTZ-t1.fas: dataset for differential richness estimation. Sample
+from GTZ treated soil at time 1.
+
+	GTZ-t2.fas: dataset for differential richness estimation. Sample
+from GTZ treated soil at time 2.
+
+	Hao_skin_axillary_hv5.fas: reconstruction of Hao's dataset of axillary 
+skin samples.
+
+	Huse_gb_2007_8_7_r143_s2: Huse’s dataset
+
+	QuinceArtficialGSFLXClean.fas: Quince's artificial dataset.
+
+	QuincePriestPotGSFLXClean.fas: Quince's Priest Pot soil dataset.
+
+	Youssef.fas: reconstruction of Youssef's dataset.
+
+See Materials and Methods for more details.
+
