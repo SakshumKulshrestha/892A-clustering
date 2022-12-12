@@ -1,5 +1,8 @@
 import sys, re
 import numpy as np
+from scipy.spatial.distance import pdist, squareform
+from scipy.cluster.hierarchy import linkage, cut_tree, fcluster
+from collections import defaultdict
 
 def load_fasta(fnam, as_list=True):
     f=open(fnam,'r')
@@ -54,6 +57,15 @@ def get_diagonal_mat(seq_list):
     mat[0] = []
     return mat
 
+def get_linkage_mat(strings):
+    transformed_strings = np.array(strings).reshape(-1,1)
+    distance_matrix = pdist(transformed_strings,lambda x,y: minimumEditDistance(x[0],y[0]))
+    linkage_mat = linkage(distance_matrix, method='average')
+    return linkage_mat
+
+def cut_tree_at_lv(linkage_mat, height=2, numclust=3, criterion='maxclust', upgma_out=None):
+    return fcluster(linkage_mat,numclust,criterion=criterion)
+
 def content_by_level(str1, l=0):
     level_dict = {}
     level = 0
@@ -82,3 +94,9 @@ def content_by_level(str1, l=0):
 def un_nest(s):
     s = eval(s)
     return s
+
+def get_similarity(vals, assn):
+    clusters = defaultdict(list)
+    for ind, clust in enumerate(assn):
+        clusters[clust].append(vals)
+    print(clusters)

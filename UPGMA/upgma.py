@@ -63,7 +63,9 @@ def alpha_labels(start, end):
         labels.append(chr(i))
     return labels
 
-
+def get_clusters_assign(str_list, num_clust, dendro=None):
+    out = un_nest(UPGMA(get_diagonal_mat(str_list), str_list))
+    return cut_tree_at_lv(get_linkage_mat(str_list), numclust=num_clust, upgma_out=out)
 
 # Test table data and corresponding labels
 M_labels = alpha_labels("A", "G")   #A through G
@@ -78,4 +80,17 @@ M = [
     ]
 print(un_nest(UPGMA(M, M_labels)))
 
+test_list = [
+ "Acquiesce.",
+"Acronym.",
+"Ambiguity.",
+"Analogy.",
+"Anachronism.",
+"Andragogy.",
+"Antithesis.",
+"Antonym.",
+]
+
+print(un_nest(UPGMA(get_diagonal_mat(test_list), test_list)))
+print(cut_tree_at_lv(get_linkage_mat(test_list), numclust=5))
 # UPGMA(M, M_labels) should output: '((((A,D),((B,F),G)),C),E)'
