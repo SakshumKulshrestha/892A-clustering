@@ -64,8 +64,9 @@ def alpha_labels(start, end):
     return labels
 
 def get_clusters_assign(str_list, num_clust, dendro=None):
-    out = un_nest(UPGMA(get_diagonal_mat(str_list), str_list))
-    return cut_tree_at_lv(get_linkage_mat(str_list), numclust=num_clust, upgma_out=out)
+    # out = un_nest(UPGMA(get_diagonal_mat(str_list), str_list))
+    # return cut_tree_at_lv(get_linkage_mat(str_list), numclust=num_clust, upgma_out=out)
+    return cut_tree_at_lv(get_linkage_mat(str_list), numclust=num_clust)
 
 # Test table data and corresponding labels
 M_labels = alpha_labels("A", "G")   #A through G
